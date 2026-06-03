@@ -3,13 +3,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'fastlane/plugin/rustored/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'fastlane-plugin-rustored'
+  spec.name          = 'fastlane-rustored'
   spec.version       = Fastlane::Rustored::VERSION
   spec.author        = '06ED'
   spec.email         = 'hsbest123@gmail.com'
 
   spec.summary       = 'Plugin for automating rustore publishing'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-rustored"
+  spec.homepage      = "https://github.com/06ED/fastlane-rustored"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
