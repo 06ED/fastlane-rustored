@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'fastlane/plugin/rustored/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'fastlane-rustored'
+  spec.name          = 'fastlane-plugin-rustored'
   spec.version       = Fastlane::Rustored::VERSION
   spec.author        = '06ED'
   spec.email         = 'hsbest123@gmail.com'
