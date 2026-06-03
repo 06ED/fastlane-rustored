@@ -1,52 +1,70 @@
-# rustored plugin
+# fastlane-rustored
 
-[![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-rustored)
+Fastlane plugin for publishing Android builds to RuStore.
 
-## Getting Started
-
-This project is a [_fastlane_](https://github.com/fastlane/fastlane) plugin. To get started with `fastlane-plugin-rustored`, add it to your project by running:
+## Install
 
 ```bash
 fastlane add_plugin rustored
 ```
 
-## About rustored
+## Actions
 
-Plugin for automating rustore publishing
+### `rustored_publish_aab`
 
-**Note to author:** Add a more detailed description about this plugin here. If your plugin contains multiple actions, make sure to mention them here.
+Publishes an AAB file.
 
-## Example
-
-Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
-
-**Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
-
-## Run tests for this plugin
-
-To run both the tests, and code style validation, run
-
-```
-rake
+```ruby
+rustored_publish_aab(
+  token: ENV["RUSTORE_TOKEN"],
+  package_name: "com.example.app",
+  version_id: "123456",
+  aab_path: "app/build/outputs/bundle/release/app-release.aab"
+)
 ```
 
-To automatically fix many of the styling issues, use
+### `rustored_publish_apk`
+
+Publishes an APK file.
+
+```ruby
+rustored_publish_apk(
+  token: ENV["RUSTORE_TOKEN"],
+  package_name: "com.example.app",
+  version_id: "123456",
+  apk_path: "app/build/outputs/apk/release/app-release.apk",
+  services_type: "Unknown",
+  is_main_apk: true
+)
 ```
-rubocop -a
+
+## Options
+
+Shared:
+
+| Option | Env | Required |
+| --- | --- | --- |
+| `token` | `RUSTORE_TOKEN` | yes |
+| `package_name` | `RUSTORE_PACKAGE_NAME` | yes |
+| `version_id` | `RUSTORE_VERSION_ID` | yes |
+
+AAB:
+
+| Option | Env | Required |
+| --- | --- | --- |
+| `aab_path` | `RUSTORE_AAB_PATH` | yes |
+
+APK:
+
+| Option | Env | Required |
+| --- | --- | --- |
+| `apk_path` | `RUSTORE_APK_PATH` | yes |
+| `services_type` | `RUSTORE_SERVICES_TYPE` | no |
+| `is_main_apk` | `RUSTORE_IS_MAIN_APK` | yes |
+
+## Test
+
+```bash
+bundle exec rspec
+bundle exec rubocop
 ```
-
-## Issues and Feedback
-
-For any other issues and feedback about this plugin, please submit it to this repository.
-
-## Troubleshooting
-
-If you have trouble using plugins, check out the [Plugins Troubleshooting](https://docs.fastlane.tools/plugins/plugins-troubleshooting/) guide.
-
-## Using _fastlane_ Plugins
-
-For more information about how the `fastlane` plugin system works, check out the [Plugins documentation](https://docs.fastlane.tools/plugins/create-plugin/).
-
-## About _fastlane_
-
-_fastlane_ is the easiest way to automate beta deployments and releases for your iOS and Android apps. To learn more, check out [fastlane.tools](https://fastlane.tools).

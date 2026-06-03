@@ -1,21 +1,3 @@
-describe Fastlane::Actions::RustoredAction do
-  describe '#run' do
-    it 'publishes an aab as a legacy alias' do
-      params = {
-        token: 'token',
-        package_name: 'com.example.app',
-        version_id: '1',
-        aab_path: 'app.aab'
-      }
-
-      expect(Fastlane::UI).to receive(:important)
-      expect(Fastlane::Helper::RustoredHelper).to receive(:publish_aab).with(params)
-
-      Fastlane::Actions::RustoredAction.run(params)
-    end
-  end
-end
-
 describe Fastlane::Actions::RustoredPublishAabAction do
   describe '#run' do
     it 'publishes an aab' do
