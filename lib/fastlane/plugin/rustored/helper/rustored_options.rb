@@ -6,9 +6,16 @@ module Fastlane
       def self.common_options
         [
           FastlaneCore::ConfigItem.new(
-            key: :token,
-            env_name: "RUSTORE_TOKEN",
-            description: "The token for authenticating with RuStore",
+            key: :key_id,
+            env_name: "RUSTORE_KEY_ID",
+            description: "The key id for authenticating with RuStore",
+            optional: false,
+            type: String
+          ),
+          FastlaneCore::ConfigItem.new(
+            key: :private_key,
+            env_name: "RUSTORE_PRIVATE_KEY",
+            description: "The private key for authenticating with RuStore",
             optional: false,
             type: String
           ),

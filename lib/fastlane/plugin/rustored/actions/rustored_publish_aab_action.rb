@@ -9,7 +9,8 @@ module Fastlane
     class RustoredPublishAabAction < Action
       def self.run(params)
         Fastlane::Helper::RustoredHelper.publish_aab(
-          token: params[:token],
+          key_id: params[:key_id],
+          private_key: params[:private_key],
           package_name: params[:package_name],
           version_id: params[:version_id],
           aab_path: params[:aab_path]
