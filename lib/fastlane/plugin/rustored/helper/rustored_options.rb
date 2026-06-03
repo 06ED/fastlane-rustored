@@ -24,7 +24,7 @@ module Fastlane
             env_name: "RUSTORE_VERSION_ID",
             description: "The version id of the app you want to publish",
             optional: false,
-            type: String
+            type: Integer
           )
         ]
       end

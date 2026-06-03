@@ -4,7 +4,7 @@ describe Fastlane::Actions::RustoredPublishAabAction do
       params = {
         token: 'token',
         package_name: 'com.example.app',
-        version_id: '1',
+        version_id: 1,
         aab_path: 'app.aab'
       }
 
@@ -21,7 +21,7 @@ describe Fastlane::Actions::RustoredPublishApkAction do
       params = {
         token: 'token',
         package_name: 'com.example.app',
-        version_id: '1',
+        version_id: 1,
         services_type: 'Unknown',
         is_main_apk: true,
         apk_path: 'app.apk'

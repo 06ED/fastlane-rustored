@@ -20,7 +20,7 @@ Publishes an AAB file.
 rustored_publish_aab(
   token: ENV["RUSTORE_TOKEN"],
   package_name: "com.example.app",
-  version_id: "123456",
+  version_id: 123456,
   aab_path: "app/build/outputs/bundle/release/app-release.aab"
 )
 ```
@@ -33,7 +33,7 @@ Publishes an APK file.
 rustored_publish_apk(
   token: ENV["RUSTORE_TOKEN"],
   package_name: "com.example.app",
-  version_id: "123456",
+  version_id: 123456,
   apk_path: "app/build/outputs/apk/release/app-release.apk",
   services_type: "Unknown",
   is_main_apk: true
